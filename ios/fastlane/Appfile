@@ -1,0 +1,3 @@
+app_identifier(ENV["IOS_BUNDLE_ID"] || "com.app.tahseen.dev")
+apple_id(ENV["APPLE_ID"])
+itc_team_id(ENV["ITC_TEAM_ID"])

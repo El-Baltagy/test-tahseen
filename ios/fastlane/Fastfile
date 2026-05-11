@@ -1,0 +1,30 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build and upload to Firebase App Distribution"
+  lane :distribute do |options|
+    flavor = options[:flavor] || "dev"
+    app_id = ENV["FIREBASE_IOS_APP_ID_#{flavor.upcase}"] || ENV["FIREBASE_IOS_APP_ID"]
+    
+    unless app_id
+      UI.user_error!("Missing FIREBASE_IOS_APP_ID for flavor #{flavor}")
+    end
+
+    # 1. Prepare project files for the target flavor
+    UI.message("🔄 Switching project to flavor: #{flavor}")
+    sh("cd ../.. && dart lib/core/tools/flavors/switch_default_flavor.dart #{flavor}")
+
+    # 2. Build the Flutter IPA
+    sh("cd ../.. && flutter build ipa --release --flavor #{flavor} --no-codesign")
+    
+    # Dynamically find the IPA
+    ipa_path = Dir["../../build/ios/ipa/*.ipa"].first
+    
+    firebase_app_distribution(
+      app: app_id,
+      ipa_path: ipa_path,
+      release_notes: options[:notes] || "Automated build for #{flavor}",
+      testers_file: "../../testers.txt"
+    )
+  end
+end

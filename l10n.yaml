@@ -1,0 +1,12 @@
+# Flutter localization configuration
+# Docs: https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization
+
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+
+# Uncomment to suppress the @@locale key requirement in non-template files:
+# require-resource-attributes: false
+
+# Uncomment for nullable getter support:
+# nullable-getter: false

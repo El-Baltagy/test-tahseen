@@ -1,0 +1,18 @@
+# Unused ARB Keys Report
+Reference locale : en
+Scanned Dart files: 76
+Unused keys (14):
+  - cancel_btn
+  - error_invalid_email
+  - error_required
+  - forgot_password
+  - home_title
+  - logout_btn
+  - no_internet
+  - notifications_title
+  - password_hint
+  - profile_title
+  - settings_title
+  - submit_btn
+  - success_saved
+  - welcome_message

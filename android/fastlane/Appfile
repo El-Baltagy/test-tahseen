@@ -1,0 +1,2 @@
+json_key_file("../../service-account.json")
+package_name(ENV["ANDROID_PACKAGE_NAME"] || "com.app.tahseen.dev")
