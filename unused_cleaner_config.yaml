@@ -1,0 +1,6 @@
+# List directories or file prefixes to ignore during scanning
+exclude:
+  - lib/generated/
+  - lib/core/tools/
+  - assets/temp/
+  - assets/mock/

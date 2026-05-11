@@ -1,0 +1,645 @@
+{
+  "info": {
+    "_postman_id": "71e658de-6b76-4419-9daf-b62b0477a971",
+    "name": "Chat_test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37935717"
+  },
+  "item": [
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "get_messages",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZWFhZDUzYzJlMDBmNDMzODA1YzJiMzQ5YWJmYTdlYzViOWFhZjA1MWU0YmQxNzQ3MzU0ZjIwMDA3YTE4ZDhlYzhkZTQ4NDE4ODA5OGVkMDkiLCJpYXQiOjE3NzU1NjE1MTYuNTgzOTA1LCJuYmYiOjE3NzU1NjE1MTYuNTgzOTA3LCJleHAiOjE4MDcwOTc1MTYuNTgwNTY1LCJzdWIiOiIxMTI2Iiwic2NvcGVzIjpbXX0.OUt5Yy21Ggz_D31bEZSfCpK8Q2-maYXIa9GaUTbLgmBEfhf3PhexabhEVXd__u-jqH9-8Yil7CiCgz-mrNJnfr4ZVW1eTEN2JtM7q5GIKdA1TblaRKU9Z1fwXfv8O9WndbQOUp3fgeyG9it1SZS-OUw8z691M-N3zrSf9wL67NVG8OrraUXSVzSX0UaE8i2ahr1vh4jYIS8D__Ij4fE-P0SXcYXmvIzQ2csFzKPhbUzYeBS5I1oA_YRqhoFW0KklhP7RClUUyWxSW5WqHiyasJ0U1569vSgOAWmNVkrRMImuVJk2mu27GAHwJEAkcbhWRAJIv3XFMlu8qZblJ7faDTBtBpxBo8fJJqqVfyX9Wcb7bEfLvEGz_vMvMarBaq3SMVLHNfPtPPQkZ42r232Zwf-0AEapzOcLFx_-O0bdeRX3QEZLd9Pp3qI64di8ERFp1-OIoHfxie_MIh94VaYbt3HM1CSmj8JdLHdj6JLdDblp_XbAOsLje57Jk9avXcZ3nuc58arUi9XG853KM2H2Paw6aKSM08QkN7_sKtbwHJvfJbHhMlCi6I0iqgRw9ZWBu_Afw_dz_XgSQ5G7NMW8gdsGtldwFsqWdd7If8W03RNc84HwYybbxaU0hN5yAu_Kv0C451qdHT00C1IzbSPuTG8bMfEZ7mwiUFxRw3v-kCc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/room/chat/1129/Private?is_see=1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "room",
+                "chat",
+                "1129",
+                "Private"
+              ],
+              "query": [
+                {
+                  "key": "is_see",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "pin_messages",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZWFhZDUzYzJlMDBmNDMzODA1YzJiMzQ5YWJmYTdlYzViOWFhZjA1MWU0YmQxNzQ3MzU0ZjIwMDA3YTE4ZDhlYzhkZTQ4NDE4ODA5OGVkMDkiLCJpYXQiOjE3NzU1NjE1MTYuNTgzOTA1LCJuYmYiOjE3NzU1NjE1MTYuNTgzOTA3LCJleHAiOjE4MDcwOTc1MTYuNTgwNTY1LCJzdWIiOiIxMTI2Iiwic2NvcGVzIjpbXX0.OUt5Yy21Ggz_D31bEZSfCpK8Q2-maYXIa9GaUTbLgmBEfhf3PhexabhEVXd__u-jqH9-8Yil7CiCgz-mrNJnfr4ZVW1eTEN2JtM7q5GIKdA1TblaRKU9Z1fwXfv8O9WndbQOUp3fgeyG9it1SZS-OUw8z691M-N3zrSf9wL67NVG8OrraUXSVzSX0UaE8i2ahr1vh4jYIS8D__Ij4fE-P0SXcYXmvIzQ2csFzKPhbUzYeBS5I1oA_YRqhoFW0KklhP7RClUUyWxSW5WqHiyasJ0U1569vSgOAWmNVkrRMImuVJk2mu27GAHwJEAkcbhWRAJIv3XFMlu8qZblJ7faDTBtBpxBo8fJJqqVfyX9Wcb7bEfLvEGz_vMvMarBaq3SMVLHNfPtPPQkZ42r232Zwf-0AEapzOcLFx_-O0bdeRX3QEZLd9Pp3qI64di8ERFp1-OIoHfxie_MIh94VaYbt3HM1CSmj8JdLHdj6JLdDblp_XbAOsLje57Jk9avXcZ3nuc58arUi9XG853KM2H2Paw6aKSM08QkN7_sKtbwHJvfJbHhMlCi6I0iqgRw9ZWBu_Afw_dz_XgSQ5G7NMW8gdsGtldwFsqWdd7If8W03RNc84HwYybbxaU0hN5yAu_Kv0C451qdHT00C1IzbSPuTG8bMfEZ7mwiUFxRw3v-kCc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/room/pinned/369",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "room",
+                "pinned",
+                "369"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "pin_messages_response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/room/pinned/369",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "room",
+                    "pinned",
+                    "369"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 14 Apr 2026 19:16:56 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "500"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "499"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-Cache-Status",
+                  "value": "MISS"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [\n        {\n            \"chat_id\": 16358,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gh\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:38\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16357,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gghhh\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:37\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16356,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gvhj\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:36\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16355,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"cvji\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:34\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16354,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"vvhj\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:33\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16353,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"vvh\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:32\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16352,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gvv\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:30\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16351,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"hhjj\",\n            \"time\": \"11:28 AM\",\n            \"chat_timestamp\": \"2026-04-09 11:28:29\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16224,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"لال\",\n            \"time\": \"02:12 PM\",\n            \"chat_timestamp\": \"2026-04-08 14:12:47\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16076,\n            \"chat_room_id\": 369,\n            \"chat_from\": 1126,\n            \"chat_to\": 1126,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gfbvd\",\n            \"time\": \"10:03 AM\",\n            \"chat_timestamp\": \"2026-04-05 10:03:39\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_avatar\": null,\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "pin_toogle",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZWFhZDUzYzJlMDBmNDMzODA1YzJiMzQ5YWJmYTdlYzViOWFhZjA1MWU0YmQxNzQ3MzU0ZjIwMDA3YTE4ZDhlYzhkZTQ4NDE4ODA5OGVkMDkiLCJpYXQiOjE3NzU1NjE1MTYuNTgzOTA1LCJuYmYiOjE3NzU1NjE1MTYuNTgzOTA3LCJleHAiOjE4MDcwOTc1MTYuNTgwNTY1LCJzdWIiOiIxMTI2Iiwic2NvcGVzIjpbXX0.OUt5Yy21Ggz_D31bEZSfCpK8Q2-maYXIa9GaUTbLgmBEfhf3PhexabhEVXd__u-jqH9-8Yil7CiCgz-mrNJnfr4ZVW1eTEN2JtM7q5GIKdA1TblaRKU9Z1fwXfv8O9WndbQOUp3fgeyG9it1SZS-OUw8z691M-N3zrSf9wL67NVG8OrraUXSVzSX0UaE8i2ahr1vh4jYIS8D__Ij4fE-P0SXcYXmvIzQ2csFzKPhbUzYeBS5I1oA_YRqhoFW0KklhP7RClUUyWxSW5WqHiyasJ0U1569vSgOAWmNVkrRMImuVJk2mu27GAHwJEAkcbhWRAJIv3XFMlu8qZblJ7faDTBtBpxBo8fJJqqVfyX9Wcb7bEfLvEGz_vMvMarBaq3SMVLHNfPtPPQkZ42r232Zwf-0AEapzOcLFx_-O0bdeRX3QEZLd9Pp3qI64di8ERFp1-OIoHfxie_MIh94VaYbt3HM1CSmj8JdLHdj6JLdDblp_XbAOsLje57Jk9avXcZ3nuc58arUi9XG853KM2H2Paw6aKSM08QkN7_sKtbwHJvfJbHhMlCi6I0iqgRw9ZWBu_Afw_dz_XgSQ5G7NMW8gdsGtldwFsqWdd7If8W03RNc84HwYybbxaU0hN5yAu_Kv0C451qdHT00C1IzbSPuTG8bMfEZ7mwiUFxRw3v-kCc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "chat_id",
+                  "value": "16198",
+                  "type": "text",
+                  "uuid": "f9e36c9d-2cd1-479c-a8a3-4b3eba2ec5bb"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/pin_message",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pin_message"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "toogle_pin_reponse",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "chat_id",
+                      "value": "16198",
+                      "type": "text",
+                      "uuid": "f9e36c9d-2cd1-479c-a8a3-4b3eba2ec5bb"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/pin_message",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pin_message"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 14 Apr 2026 19:15:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "500"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "498"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Nachricht erfolgreich gelöst\",\n    \"data\": {\n        \"pinned_messages\": [\n            {\n                \"is_pin\": 0,\n                \"chat_id\": 16198\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "get_messages",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmQ0Y2MyZDgwODk5ODdmOTE3MmRhY2JkZTg1OWU4YWE1Mjk4MGRiODA3ODNkMzI3NDI2OWYxNWIzOTQzMjMzYTBkZjY0NGI2NGE4NjBjNDkiLCJpYXQiOjE3NzYxNjkwMzcuMTgyMDY1LCJuYmYiOjE3NzYxNjkwMzcuMTgyMDY3LCJleHAiOjE4MDc3MDUwMzcuMTc3OTk3LCJzdWIiOiIxMTMwIiwic2NvcGVzIjpbXX0.d15E6fQXarx8dh3eUD7OXCi8WbCILa09IbiUSigfz-TKMvo0S6wuuG7tn1YDMxqISRrs57nv2UEbsXUIlpE-Y_8y4mMayPiEjh2itPNC0bkongZWuCJijr6NURcT64BqzEvzvtPLkamQweUESY3jMCX3rUwKjc2jXG50mKuWPy3nhrCs7JkQm04HzTV0WHkTPJ_EUXDKKUr9h97QYplG5YAD79VONK16T1F-42S0MkEI9dn49jbywD1CqXQE1iR9ZxJN6LigmQ_loUYprypi8aXwZ4tyAKAQf7x_-kbENsMM7ZC94o3pnyDalTO4db5ajk8JWCvOJdLYzE2jxfjjjGU78bJPBP5ameBVYZO9Z_hy870S7v0PhzWs5lRIKYHUUvGSi55Yfm3bOHBul77QSqyaTxMS-UjmjvHKU85Eok4RE_9FWKO10XYGycX2cyeWGbZH7-HAVWh6lWD4030zmkGd6slZd6o_AL-zkTg8L2GGm3HIItHugiRLQsw_ZKTXz9HnRWEE7eGAdXyXS8VLzPxYhszQSWZ4o_6Zxq9mdd9MomMhEj6wee1DNUTzr2r3lZEz3eWa6RkJyX4dm0GDi5Bxieexp9hPDEBkVRz_RVR1TPzMu926W2bw6ReZEt1qdAMELhKd-qROsDPvSZ04EAoPYvj_9zpHjWcCe2ils0o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/room/chat/1129/Private?is_see=1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "room",
+                "chat",
+                "1129",
+                "Private"
+              ],
+              "query": [
+                {
+                  "key": "is_see",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "messages_private",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/room/chat/1129/Private?is_see=1",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "room",
+                    "chat",
+                    "1129",
+                    "Private"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_see",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 14 Apr 2026 19:14:33 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "500"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "499"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-Cache-Status",
+                  "value": "MISS"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [\n        {\n            \"chat_id\": 16531,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1130,\n            \"chat_to\": 1129,\n            \"chat_seen\": 1,\n            \"chat_message\": \"Anruf gestartet\",\n            \"time\": \"02:04 AM\",\n            \"chat_timestamp\": \"2026-04-12 02:04:37\",\n            \"chat_message_type\": \"missed_call\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1130,\n            \"user_firstname\": \"Tharwat\",\n            \"user_lastname\": \"Tharwat\",\n            \"user_avatar\": \"920570.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16424,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gfffg$~hhhb$~lllll$~oooo\",\n            \"time\": \"04:05 PM\",\n            \"chat_timestamp\": \"2026-04-09 16:05:19\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16423,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1130,\n            \"chat_to\": 1129,\n            \"chat_seen\": 1,\n            \"chat_message\": \"qQQQQQQQQQQQQQQQQ$~SSSSSSSSSSSSS$~XXXXXXXXXXXX$~CCCCCCCCCCCC$~VVVVVVVVVVV\",\n            \"time\": \"04:05 PM\",\n            \"chat_timestamp\": \"2026-04-09 16:05:03\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1130,\n            \"user_firstname\": \"Tharwat\",\n            \"user_lastname\": \"Tharwat\",\n            \"user_avatar\": \"920570.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16422,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gdhdhdhdj$~hdhdhdhdh$~jdhdhdyeh$~xvxbdbd\",\n            \"time\": \"04:04 PM\",\n            \"chat_timestamp\": \"2026-04-09 16:04:36\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16421,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1130,\n            \"chat_to\": 1129,\n            \"chat_seen\": 1,\n            \"chat_message\": \"qqqqqqqqqqqqqqqqqqqqqq$~ssssssssssssssssssssss$~ddddddddddddddddddddd$~cccccccccccccccc\",\n            \"time\": \"04:04 PM\",\n            \"chat_timestamp\": \"2026-04-09 16:04:11\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1130,\n            \"user_firstname\": \"Tharwat\",\n            \"user_lastname\": \"Tharwat\",\n            \"user_avatar\": \"920570.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16415,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"gfgv\",\n            \"time\": \"03:57 PM\",\n            \"chat_timestamp\": \"2026-04-09 15:57:18\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16407,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": null,\n            \"time\": \"03:28 PM\",\n            \"chat_timestamp\": \"2026-04-09 15:28:27\",\n            \"chat_message_type\": \"image\",\n            \"chat_attachment\": \"https://hco-app.s3.amazonaws.com/message/images/69d7a97b062ba_%D9%88%D8%AB%D8%A7%D8%A6%D9%82%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A8.png\",\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16406,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"الو\",\n            \"time\": \"03:28 PM\",\n            \"chat_timestamp\": \"2026-04-09 15:28:16\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16378,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"يل\",\n            \"time\": \"12:18 PM\",\n            \"chat_timestamp\": \"2026-04-09 12:18:30\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 1,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16184,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1130,\n            \"chat_to\": 1129,\n            \"chat_seen\": 1,\n            \"chat_message\": \"Anruf gestartet\",\n            \"time\": \"05:07 PM\",\n            \"chat_timestamp\": \"2026-04-07 17:07:13\",\n            \"chat_message_type\": \"missed_call\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1130,\n            \"user_firstname\": \"Tharwat\",\n            \"user_lastname\": \"Tharwat\",\n            \"user_avatar\": \"920570.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16166,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1130,\n            \"chat_to\": 1129,\n            \"chat_seen\": 1,\n            \"chat_message\": \"😃😃😄😄😁\",\n            \"time\": \"02:48 PM\",\n            \"chat_timestamp\": \"2026-04-07 14:48:21\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": {\n                \"chat_id\": 15934,\n                \"chat_reply_id\": null,\n                \"chat_from\": 1129,\n                \"chat_from_first_name\": \"zezo\",\n                \"chat_from_last_name\": \"zezo\",\n                \"chat_to\": 1130,\n                \"chat_message\": \"تالت\",\n                \"chat_attachment\": null,\n                \"chat_message_type\": \"text\",\n                \"deleted_to\": 0,\n                \"deleted_from\": 0,\n                \"deleted_for_everyone\": 0,\n                \"deleted_for\": 0\n            },\n            \"user_id\": 1130,\n            \"user_firstname\": \"Tharwat\",\n            \"user_lastname\": \"Tharwat\",\n            \"user_avatar\": \"920570.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": true,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16165,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"jhgr\",\n            \"time\": \"02:47 PM\",\n            \"chat_timestamp\": \"2026-04-07 14:47:49\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16164,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"hggr\",\n            \"time\": \"02:47 PM\",\n            \"chat_timestamp\": \"2026-04-07 14:47:48\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16162,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"jhgr\",\n            \"time\": \"02:47 PM\",\n            \"chat_timestamp\": \"2026-04-07 14:47:47\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        },\n        {\n            \"chat_id\": 16163,\n            \"chat_room_id\": 373,\n            \"chat_from\": 1129,\n            \"chat_to\": 1130,\n            \"chat_seen\": 1,\n            \"chat_message\": \"hggr\",\n            \"time\": \"02:47 PM\",\n            \"chat_timestamp\": \"2026-04-07 14:47:47\",\n            \"chat_message_type\": \"text\",\n            \"chat_attachment\": null,\n            \"reply\": null,\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_avatar\": \"673093.png\",\n            \"chat_favorite\": 0,\n            \"is_forward\": 0,\n            \"is_welcome\": 0,\n            \"is_pin\": 0,\n            \"is_remove_member\": 0,\n            \"is_deleted\": 0,\n            \"is_outgoing\": false,\n            \"reactions\": []\n        }\n    ],\n    \"links\": {\n        \"first\": \"https://pri-po.com/api/new_chat/room/chat/1129/Private?page=1\",\n        \"last\": \"https://pri-po.com/api/new_chat/room/chat/1129/Private?page=2\",\n        \"prev\": null,\n        \"next\": \"https://pri-po.com/api/new_chat/room/chat/1129/Private?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 2,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"https://pri-po.com/api/new_chat/room/chat/1129/Private?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"https://pri-po.com/api/new_chat/room/chat/1129/Private?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"https://pri-po.com/api/new_chat/room/chat/1129/Private?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"https://pri-po.com/api/new_chat/room/chat/1129/Private\",\n        \"per_page\": 15,\n        \"to\": 15,\n        \"total\": 28\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "chat_statuses",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZWFhZDUzYzJlMDBmNDMzODA1YzJiMzQ5YWJmYTdlYzViOWFhZjA1MWU0YmQxNzQ3MzU0ZjIwMDA3YTE4ZDhlYzhkZTQ4NDE4ODA5OGVkMDkiLCJpYXQiOjE3NzU1NjE1MTYuNTgzOTA1LCJuYmYiOjE3NzU1NjE1MTYuNTgzOTA3LCJleHAiOjE4MDcwOTc1MTYuNTgwNTY1LCJzdWIiOiIxMTI2Iiwic2NvcGVzIjpbXX0.OUt5Yy21Ggz_D31bEZSfCpK8Q2-maYXIa9GaUTbLgmBEfhf3PhexabhEVXd__u-jqH9-8Yil7CiCgz-mrNJnfr4ZVW1eTEN2JtM7q5GIKdA1TblaRKU9Z1fwXfv8O9WndbQOUp3fgeyG9it1SZS-OUw8z691M-N3zrSf9wL67NVG8OrraUXSVzSX0UaE8i2ahr1vh4jYIS8D__Ij4fE-P0SXcYXmvIzQ2csFzKPhbUzYeBS5I1oA_YRqhoFW0KklhP7RClUUyWxSW5WqHiyasJ0U1569vSgOAWmNVkrRMImuVJk2mu27GAHwJEAkcbhWRAJIv3XFMlu8qZblJ7faDTBtBpxBo8fJJqqVfyX9Wcb7bEfLvEGz_vMvMarBaq3SMVLHNfPtPPQkZ42r232Zwf-0AEapzOcLFx_-O0bdeRX3QEZLd9Pp3qI64di8ERFp1-OIoHfxie_MIh94VaYbt3HM1CSmj8JdLHdj6JLdDblp_XbAOsLje57Jk9avXcZ3nuc58arUi9XG853KM2H2Paw6aKSM08QkN7_sKtbwHJvfJbHhMlCi6I0iqgRw9ZWBu_Afw_dz_XgSQ5G7NMW8gdsGtldwFsqWdd7If8W03RNc84HwYybbxaU0hN5yAu_Kv0C451qdHT00C1IzbSPuTG8bMfEZ7mwiUFxRw3v-kCc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/chat/statuses",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "chat",
+                "statuses"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "statues_response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/chat/statuses",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "statuses"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 14 Apr 2026 19:15:21 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "500"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "499"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-Cache-Status",
+                  "value": "MISS"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"status_key\": \"online\",\n            \"text\": \"online\"\n        },\n        {\n            \"id\": 2,\n            \"status_key\": \"praying\",\n            \"text\": \"I am praying\"\n        },\n        {\n            \"id\": 3,\n            \"status_key\": \"urgent_only\",\n            \"text\": \"Call only in urgent cases\"\n        },\n        {\n            \"id\": 4,\n            \"status_key\": \"meeting\",\n            \"text\": \"I am in a meeting\"\n        },\n        {\n            \"id\": 5,\n            \"status_key\": \"consultation\",\n            \"text\": \"I am in consultation\"\n        },\n        {\n            \"id\": 7,\n            \"status_key\": \"offline\",\n            \"text\": \"offline\"\n        },\n        {\n            \"id\": 8,\n            \"status_key\": \"null\",\n            \"text\": \"\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "all_users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZWFhZDUzYzJlMDBmNDMzODA1YzJiMzQ5YWJmYTdlYzViOWFhZjA1MWU0YmQxNzQ3MzU0ZjIwMDA3YTE4ZDhlYzhkZTQ4NDE4ODA5OGVkMDkiLCJpYXQiOjE3NzU1NjE1MTYuNTgzOTA1LCJuYmYiOjE3NzU1NjE1MTYuNTgzOTA3LCJleHAiOjE4MDcwOTc1MTYuNTgwNTY1LCJzdWIiOiIxMTI2Iiwic2NvcGVzIjpbXX0.OUt5Yy21Ggz_D31bEZSfCpK8Q2-maYXIa9GaUTbLgmBEfhf3PhexabhEVXd__u-jqH9-8Yil7CiCgz-mrNJnfr4ZVW1eTEN2JtM7q5GIKdA1TblaRKU9Z1fwXfv8O9WndbQOUp3fgeyG9it1SZS-OUw8z691M-N3zrSf9wL67NVG8OrraUXSVzSX0UaE8i2ahr1vh4jYIS8D__Ij4fE-P0SXcYXmvIzQ2csFzKPhbUzYeBS5I1oA_YRqhoFW0KklhP7RClUUyWxSW5WqHiyasJ0U1569vSgOAWmNVkrRMImuVJk2mu27GAHwJEAkcbhWRAJIv3XFMlu8qZblJ7faDTBtBpxBo8fJJqqVfyX9Wcb7bEfLvEGz_vMvMarBaq3SMVLHNfPtPPQkZ42r232Zwf-0AEapzOcLFx_-O0bdeRX3QEZLd9Pp3qI64di8ERFp1-OIoHfxie_MIh94VaYbt3HM1CSmj8JdLHdj6JLdDblp_XbAOsLje57Jk9avXcZ3nuc58arUi9XG853KM2H2Paw6aKSM08QkN7_sKtbwHJvfJbHhMlCi6I0iqgRw9ZWBu_Afw_dz_XgSQ5G7NMW8gdsGtldwFsqWdd7If8W03RNc84HwYybbxaU0hN5yAu_Kv0C451qdHT00C1IzbSPuTG8bMfEZ7mwiUFxRw3v-kCc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/all/members",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "all",
+                "members"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/all/members",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "all",
+                    "members"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 14 Apr 2026 18:53:09 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "500"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "499"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-Cache-Status",
+                  "value": "MISS"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [\n        {\n            \"user_id\": 1,\n            \"user_firstname\": \"Samir\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Samir\",\n            \"email\": \"bajra.samir@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/646531.jpeg\",\n            \"user_status\": null,\n            \"room_id\": 377\n        },\n        {\n            \"user_id\": 15,\n            \"user_firstname\": \"Talib\",\n            \"user_lastname\": \"Botta\",\n            \"user_name\": \"Talib\",\n            \"email\": \"Marcellobotta88@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/653213.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 27,\n            \"user_firstname\": \"Amar\",\n            \"user_lastname\": \"Moufti\",\n            \"user_name\": \"Amar\",\n            \"email\": \"germaniatek@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/673081.png\",\n            \"user_status\": \"Ich bin im Gebet\",\n            \"room_id\": 389\n        },\n        {\n            \"user_id\": 31,\n            \"user_firstname\": \"Selver\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Selver\",\n            \"email\": \"black.white7@web.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/392130.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 42,\n            \"user_firstname\": \"Talha\",\n            \"user_lastname\": \"Kemiksiz\",\n            \"user_name\": \"Talha\",\n            \"email\": \"neandertalha@hotmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/Talha.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 83,\n            \"user_firstname\": \"Nico\",\n            \"user_lastname\": \"Kaemmerer\",\n            \"user_name\": \"Nico\",\n            \"email\": \"nico.kaemmerer1986@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/946167.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 84,\n            \"user_firstname\": \"Ilyas\",\n            \"user_lastname\": \"Hagen\",\n            \"user_name\": \"ilyas\",\n            \"email\": \"ilyas.hagen@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/592472.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 94,\n            \"user_firstname\": \"Ahmed\",\n            \"user_lastname\": \"Meawad\",\n            \"user_name\": \"Ahmed\",\n            \"email\": \"meawad99@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/718230.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 98,\n            \"user_firstname\": \"Yusuf\",\n            \"user_lastname\": \"Altuntas\",\n            \"user_name\": \"Yusuf\",\n            \"email\": \"altuntasyusuf.de@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/975447.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 99,\n            \"user_firstname\": \"Nada\",\n            \"user_lastname\": \"Faust\",\n            \"user_name\": \"Nada\",\n            \"email\": \"amar.moufti@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/Nada.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 506,\n            \"user_firstname\": \"Meti\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Meti\",\n            \"email\": \"meti.halalcheck@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 508,\n            \"user_firstname\": \"Mana\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Mana\",\n            \"email\": \"info@hfjdksh.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/976953.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 510,\n            \"user_firstname\": \"Draga\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Draga\",\n            \"email\": \"draga.bajra@halalcheck4u.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/796937.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 511,\n            \"user_firstname\": \"Nadine\",\n            \"user_lastname\": \"Moufti\",\n            \"user_name\": \"Nadine\",\n            \"email\": \"nadinemoufti@yahoo.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/Nadine.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 518,\n            \"user_firstname\": \"Amel\",\n            \"user_lastname\": \"Music\",\n            \"user_name\": \"Amel\",\n            \"email\": \"amel-music@live.at\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/370533.jpg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 523,\n            \"user_firstname\": \"Mounir\",\n            \"user_lastname\": \"Louati\",\n            \"user_name\": \"mounir\",\n            \"email\": \"ml.energieberatung@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/651581.jpg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 526,\n            \"user_firstname\": \"Latifa\",\n            \"user_lastname\": \"--\",\n            \"user_name\": \"Latifa\",\n            \"email\": \"Latifa123123@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/593948.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 528,\n            \"user_firstname\": \"Vija\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Vija\",\n            \"email\": \"Selvija-bajra@web.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/318046.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 529,\n            \"user_firstname\": \"Philipp\",\n            \"user_lastname\": \"Seier\",\n            \"user_name\": \"Philipp\",\n            \"email\": \"philippseier1991@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/163595.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 532,\n            \"user_firstname\": \"Selim\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Selim\",\n            \"email\": \"Selim@Selim.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/226579.jpg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 534,\n            \"user_firstname\": \"Elyesa\",\n            \"user_lastname\": \"Karatay\",\n            \"user_name\": \"Elyesa\",\n            \"email\": \"business@elyesa-karatay.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/930472.jpg\",\n            \"user_status\": \"Ich bin in einem Meeting\",\n            \"room_id\": 409\n        },\n        {\n            \"user_id\": 536,\n            \"user_firstname\": \"Assistent\",\n            \"user_lastname\": \"Hc4u\",\n            \"user_name\": \"assistent\",\n            \"email\": \"samira@bajra.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/847037.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 539,\n            \"user_firstname\": \"Khaled\",\n            \"user_lastname\": \"Abozaanona\",\n            \"user_name\": \"khaled\",\n            \"email\": \"w.abozaanona@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/185600.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 540,\n            \"user_firstname\": \"Nasser\",\n            \"user_lastname\": \"Malik\",\n            \"user_name\": \"Nasser\",\n            \"email\": \"nasser.m@outlook.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/604420.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 541,\n            \"user_firstname\": \"David\",\n            \"user_lastname\": \"Adoma\",\n            \"user_name\": \"David\",\n            \"email\": \"davidadoma679@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/884764.jpg\",\n            \"user_status\": null,\n            \"room_id\": 361\n        },\n        {\n            \"user_id\": 542,\n            \"user_firstname\": \"Mohamed\",\n            \"user_lastname\": \"Abd El Daiam\",\n            \"user_name\": \"Mohamed\",\n            \"email\": \"daiam.bonn@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/545166.jpg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 543,\n            \"user_firstname\": \"Omar\",\n            \"user_lastname\": \"Ahmed\",\n            \"user_name\": \"Omar A.\",\n            \"email\": \"Omarahmed@hotmail.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/189577.PNG\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 544,\n            \"user_firstname\": \"Abdikalik\",\n            \"user_lastname\": \"Abdulkadir\",\n            \"user_name\": \"Abdikalik\",\n            \"email\": \"Abdikalik@outlook.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/592713.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 545,\n            \"user_firstname\": \"Medina\",\n            \"user_lastname\": \"Medina\",\n            \"user_name\": \"Medina\",\n            \"email\": \"msokoli584@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/385190.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 547,\n            \"user_firstname\": \"Skender\",\n            \"user_lastname\": \"Osmani\",\n            \"user_name\": \"Skender\",\n            \"email\": \"skender.gold@hotmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/567256.jpg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 549,\n            \"user_firstname\": \"Abdulmajed\",\n            \"user_lastname\": \"Mustafa\",\n            \"user_name\": \"Abdulmajed\",\n            \"email\": \"test@test.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/640812.jpeg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1006,\n            \"user_firstname\": \"Rachid\",\n            \"user_lastname\": \"Ben Ghozlen\",\n            \"user_name\": \"Rachid\",\n            \"email\": \"info@iqra-akademie.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/147078.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1010,\n            \"user_firstname\": \"Shirin\",\n            \"user_lastname\": \"Bajra\",\n            \"user_name\": \"Shirin\",\n            \"email\": \"bajra.shirin@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/808323.gif\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1011,\n            \"user_firstname\": \"Cihan\",\n            \"user_lastname\": \"hi\",\n            \"user_name\": \"cihan\",\n            \"email\": \"gtek@gmail4.de\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/497506.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1014,\n            \"user_firstname\": \"Dr. Stef\",\n            \"user_lastname\": \"Keris\",\n            \"user_name\": \"Stef\",\n            \"email\": \"info@stefkeris.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/749671.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1034,\n            \"user_firstname\": \"Issam\",\n            \"user_lastname\": \"Bayan\",\n            \"user_name\": \"Issam\",\n            \"email\": \"issamaweimer@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/869319.jpg\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1125,\n            \"user_firstname\": \"developer\",\n            \"user_lastname\": \"developer\",\n            \"user_name\": \"Developer\",\n            \"email\": \"developer@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users\",\n            \"user_status\": \"Für Chat verfügbar\",\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1126,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"user\",\n            \"user_name\": \"tester\",\n            \"email\": \"tester@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users\",\n            \"user_status\": \"online\",\n            \"room_id\": 369\n        },\n        {\n            \"user_id\": 1127,\n            \"user_firstname\": \"tester\",\n            \"user_lastname\": \"geust\",\n            \"user_name\": \"guest\",\n            \"email\": \"geust@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users\",\n            \"user_status\": null,\n            \"room_id\": 368\n        },\n        {\n            \"user_id\": 1128,\n            \"user_firstname\": \"admin\",\n            \"user_lastname\": \"admni\",\n            \"user_name\": \"admin\",\n            \"email\": \"admin@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1129,\n            \"user_firstname\": \"zezo\",\n            \"user_lastname\": \"zezo\",\n            \"user_name\": \"zezo\",\n            \"email\": \"zezo@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/673093.png\",\n            \"user_status\": \"Ich bin in einem Meeting\",\n            \"room_id\": 383\n        },\n        {\n            \"user_id\": 1130,\n            \"user_firstname\": \"Tharwat\",\n            \"user_lastname\": \"Tharwat\",\n            \"user_name\": \"Tharwat\",\n            \"email\": \"Tharwat@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/920570.png\",\n            \"user_status\": null,\n            \"room_id\": 381\n        },\n        {\n            \"user_id\": 1131,\n            \"user_firstname\": \"mis\",\n            \"user_lastname\": \"mis\",\n            \"user_name\": \"mis\",\n            \"email\": \"mis@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/806884.png\",\n            \"user_status\": null,\n            \"room_id\": null\n        },\n        {\n            \"user_id\": 1132,\n            \"user_firstname\": \"ramy\",\n            \"user_lastname\": \"ramy\",\n            \"user_name\": \"ramy\",\n            \"email\": \"ramy@gmail.com\",\n            \"user_avatar\": \"https://pri-po.com/public/assets/images/users/960901.jpg\",\n            \"user_status\": null,\n            \"room_id\": null\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": "https://hco-chat.germaniatek.net"
+    },
+    {
+      "key": "local_url",
+      "value": "http://localhost:8000"
+    }
+  ]
+}

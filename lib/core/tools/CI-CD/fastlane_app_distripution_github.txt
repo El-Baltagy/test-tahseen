@@ -1,0 +1,225 @@
+My recommendation: Use Fastlane (free) + GitHub Actions (free) + Firebase (free tier available)
+
+Perfect Workflow Setup:
+Here's the complete setup for: Push to staging → Auto-build APK → Upload to Firebase Distribution
+
+Step 1 — Set up Firebase App Distribution
+
+Go to Firebase Console
+Create a new project or select existing
+Go to App Distribution (in Release section)
+Download Service Account JSON:
+
+Click ⚙️ Project Settings → Service Accounts
+Click Generate New Private Key
+Save as service-account.json
+
+
+
+
+Step 2 — Add to GitHub Secrets
+
+Go to your GitHub repo → Settings → Secrets and variables → Actions
+Click New repository secret and add:
+
+FIREBASE_APP_ID → get from Firebase console
+SERVICE_ACCOUNT_JSON → paste contents of service-account.json
+FIREBASE_TOKEN → generate with firebase login:ci (run locally)
+
+
+
+
+Step 3 — Create GitHub Actions Workflow
+Create file .github/workflows/firebase-distribution.yml:
+yamlname: Build & Deploy to Firebase
+
+on:
+  push:
+    branches: [ staging ]  # ✅ Triggers on staging branch push
+  pull_request:
+    branches: [ staging ]
+
+jobs:
+  build-and-distribute:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1️⃣ Checkout code
+    - uses: actions/checkout@v3
+
+    # 2️⃣ Setup Flutter
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.13.0'
+
+    # 3️⃣ Get dependencies
+    - name: Get dependencies
+      run: flutter pub get
+
+    # 4️⃣ Run tests (optional but recommended)
+    - name: Run tests
+      run: flutter test
+      continue-on-error: true  # Don't stop if tests fail
+
+    # 5️⃣ Build APK for staging
+    - name: Build APK
+      run: flutter build apk --release --flavor staging -t lib/main_staging.dart
+      # Use --flavor staging if you have flavor setup
+      # Otherwise just: flutter build apk --release
+
+    # 6️⃣ Upload to Firebase App Distribution
+    - name: Upload to Firebase App Distribution
+      run: |
+        curl -sL https://firebase.tools | bash
+        firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+          --app ${{ secrets.FIREBASE_APP_ID }} \
+          --release-notes "Staging build - $(date +'%Y-%m-%d %H:%M:%S')" \
+          --testers-file testers.txt
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+    # 7️⃣ Upload artifacts (backup)
+    - name: Upload APK as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: staging-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
+
+Step 4 — Create Testers List File
+Create testers.txt in root of repo:
+qa@company.com
+developer@company.com
+tester1@company.com
+
+Step 5 — (Alternative) Using Fastlane + GitHub Actions
+If you prefer Fastlane for more control:
+Create fastlane/Fastfile:
+rubydefault_platform(:android)
+
+platform :android do
+
+  desc "Build and distribute to Firebase for staging"
+  lane :distribute_staging do
+    # Build APK
+    build_android_app(
+      task: "bundleRelease",
+      project_dir: "android/",
+      flavor: "staging"
+    )
+
+    # Upload to Firebase App Distribution
+    firebase_app_distribution(
+      app: ENV["FIREBASE_APP_ID"],
+      android_artifact_path: "android/app/build/outputs/bundle/stagingRelease/app-staging-release.aab",
+      release_notes: "Staging build",
+      service_credentials_file: "service-account.json",
+      testers_file: "testers.txt"
+    )
+  end
+
+  desc "Run Flutter tests"
+  lane :test do
+    sh("flutter test")
+  end
+end
+GitHub Actions with Fastlane:
+yamlname: Build & Deploy with Fastlane
+
+on:
+  push:
+    branches: [ staging ]
+
+jobs:
+  distribute:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.13.0'
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+        bundler-cache: true
+
+    - name: Get dependencies
+      run: flutter pub get
+
+    - name: Run tests
+      run: flutter test
+      continue-on-error: true
+
+    - name: Install Fastlane
+      run: gem install fastlane
+
+    # Save service account to file
+    - name: Create service account file
+      run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service-account.json
+
+    # Run Fastlane
+    - name: Run Fastlane
+      run: cd fastlane && fastlane android distribute_staging
+      env:
+        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+
+Step 6 — Add to .gitignore
+service-account.json
+fastlane/report.xml
+
+Complete Flow Diagram:
+Developer pushes to staging branch
+    ↓
+GitHub Actions workflow triggered
+    ↓
+Checkout code
+    ↓
+Setup Flutter
+    ↓
+Get dependencies
+    ↓
+Run tests (optional)
+    ↓
+Build APK (--release)
+    ↓
+Upload to Firebase App Distribution
+    ↓
+Testers receive email with download link
+    ↓
+Testers install APK via Firebase link
+
+Recommended Setup for You:
+Start with this (simplest):
+bash# Install Fastlane
+gem install fastlane
+
+# Initialize
+fastlane init android
+
+# Use the GitHub Actions workflow above
+Then upgrade to:
+
+Fastlane lanes for iOS + Android
+Multiple environments (staging, production)
+Slack notifications on build success/failure
+
+
+Add Slack Notifications (Optional)
+yaml- name: Notify Slack on success
+  if: success()
+  run: |
+    curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+      -H 'Content-Type: application/json' \
+      -d '{"text":"✅ Staging APK deployed to Firebase!"}'
+
+- name: Notify Slack on failure
+  if: failure()
+  run: |
+    curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+      -H 'Content-Type: application/json' \
+      -d '{"text":"❌ Build failed!"}'
+
+My recommendation: Use GitHub Actions + Fastlane — it's 100% free and very powerful.

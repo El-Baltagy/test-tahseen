@@ -1,0 +1,12 @@
+name: linters
+description: Custom lint rules for Tahseen project architecture.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  custom_lint_builder: ^0.6.0
+  analyzer: any
+  path: ^1.8.0

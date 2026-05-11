@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "725070483051",
+    "project_id": "tahseen1",
+    "storage_bucket": "tahseen1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725070483051:android:25013c3f27775bbdd92b2e",
+        "android_client_info": {
+          "package_name": "com.app.tahseen.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj7aZ4OWvnNDPn0ziElScJFzh0j2QT3QM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725070483051:android:fe286ff1a731a793d92b2e",
+        "android_client_info": {
+          "package_name": "com.app.tahseen.statg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj7aZ4OWvnNDPn0ziElScJFzh0j2QT3QM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725070483051:android:3fb9f7ea1e870c3cd92b2e",
+        "android_client_info": {
+          "package_name": "com.app.tahseen.tahseen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj7aZ4OWvnNDPn0ziElScJFzh0j2QT3QM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
