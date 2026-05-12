@@ -8,7 +8,7 @@ import 'dart:io';
 /// dart tools/localization/auto_translate.dart
 void main() async {
   // Path to your CSV file
-  final csvPath = 'lib/core/tools/localization/sample_translations.csv';
+  final csvPath = 'assets/l10n/translations.csv';
   final file = File(csvPath);
 
   if (!await file.exists()) {
@@ -98,6 +98,14 @@ void main() async {
   if (hasChanges) {
     await file.writeAsString(updatedLines.join('\n') + '\n', encoding: utf8);
     print('✅ Translations successfully updated in $csvPath');
+    
+    print('\n🔄 Compiling CSV to ARB files...');
+    final result = await Process.run('dart', ['run', 'lib/core/tools/localization/csv_to_json.dart']);
+    if (result.exitCode == 0) {
+      print(result.stdout);
+    } else {
+      print('❌ Failed to compile ARB files:\n${result.stderr}');
+    }
   } else {
     print('✨ No new translations needed. Everything is up to date.');
   }

@@ -1,18 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// csv_to_arb.dart
-// Converts a CSV file (exported from Excel / Google Sheets) into .arb files.
-//
-// CSV format expected:
-//   key,en,ar
-//   login_title,Login,تسجيل الدخول
-//   email_hint,Enter your email,أدخل بريدك الإلكتروني
-//
-// Usage:
-//   dart run lib/core/tools/localization/csv_to_arb.dart <path_to_csv> [output_dir]
-//
-// Default output_dir: lib/l10n
-// Output files: app_en.arb, app_ar.arb  (one file per extra column found)
-// ─────────────────────────────────────────────────────────────────────────────
+// csv_to_json.dart
+// Converts a CSV file (exported from Excel / Google Sheets) into .json files.
+
 
 import 'dart:convert';
 import 'dart:io';
@@ -20,13 +9,8 @@ import 'dart:io';
 import 'generate_key.dart';
 
 void main(List<String> args) {
-  if (args.isEmpty) {
-    _printUsage();
-    exit(1);
-  }
-
-  final csvPath = args[0];
-  final outputDir = args.length > 1 ? args[1] : 'lib/l10n';
+  final csvPath = args.isNotEmpty ? args[0] : 'assets/l10n/translations.csv';
+  final outputDir = args.length > 1 ? args[1] : 'assets/l10n';
 
   final csvFile = File(csvPath);
   if (!csvFile.existsSync()) {
@@ -62,6 +46,8 @@ void main(List<String> args) {
   int autoKeyCount = 0;
   int skipped = 0;
 
+  Map<String, int> missingCounts = {for (final lang in langCodes) lang: 0};
+
   for (final line in lines.skip(1)) {
     final cols = _splitCsvLine(line);
     if (cols.isEmpty) continue;
@@ -85,13 +71,17 @@ void main(List<String> args) {
       final lang = langCodes[i];
       final colIndex = i + 1;
       final value = colIndex < cols.length ? cols[colIndex].trim() : '';
-      if (value.isNotEmpty) {
-        langMaps[lang]![rawKey] = value;
+      
+      // Always add the key to guarantee perfect synchronization across all files
+      langMaps[lang]![rawKey] = value;
+
+      if (value.isEmpty) {
+        missingCounts[lang] = missingCounts[lang]! + 1;
       }
     }
   }
 
-  // ── Write ARB files ──────────────────────────────────────────────────────────
+  // ── Write json files ──────────────────────────────────────────────────────────
   final outDirectory = Directory(outputDir);
   if (!outDirectory.existsSync()) {
     outDirectory.createSync(recursive: true);
@@ -100,22 +90,26 @@ void main(List<String> args) {
 
   for (final lang in langCodes) {
     final entries = langMaps[lang]!;
-    final arb = _buildArb(lang, entries);
-    final outPath = '$outputDir/app_$lang.arb';
-    File(outPath).writeAsStringSync(arb, encoding: utf8);
+    final json = _buildArb(lang, entries);
+    final outPath = '$outputDir/app_$lang.json';
+    File(outPath).writeAsStringSync(json, encoding: utf8);
     print('✅ Written ${entries.length} keys → $outPath');
+    
+    if (missingCounts[lang]! > 0) {
+      print('   ⚠️  $lang is missing ${missingCounts[lang]} translations (Added as empty strings).');
+    }
   }
 
   if (autoKeyCount > 0) print('🔑 Auto-generated $autoKeyCount key(s) from text.');
   if (skipped > 0) print('⚠️  Skipped $skipped row(s) with no key and no text.');
-  print('\n🎉 Done! ARB files are ready in: $outputDir');
+  print('\n Done! All json files are perfectly synced and ready in: $outputDir');
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────────────────────────────────────
 
-/// Produces a formatted ARB JSON string with @@locale and sorted keys.
+/// Produces a formatted JSON string with @@locale and sorted keys.
 String _buildArb(String locale, Map<String, String> entries) {
   final sorted = Map.fromEntries(
     entries.entries.toList()..sort((a, b) => a.key.compareTo(b.key)),
@@ -171,16 +165,4 @@ String _escapeJson(String s) => s
     .replaceAll('\n', r'\n')
     .replaceAll('\r', '');
 
-void _printUsage() {
-  print('''
-📖 Usage:
-  dart run lib/core/tools/localization/csv_to_arb.dart <csv_file> [output_dir]
 
-📋 CSV format (first row = header):
-  key,en,ar
-  login_title,Login,تسجيل الدخول
-  ,Logout,تسجيل الخروج     ← key auto-generated from EN text
-
-🌍 One .arb file is created per language column.
-''');
-}

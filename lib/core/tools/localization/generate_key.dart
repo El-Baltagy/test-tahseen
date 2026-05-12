@@ -20,7 +20,7 @@ void main(List<String> args) async {
   final key = toSnakeCase(englishValue);
   print('🔑 Generated key: $key');
 
-  final csvPath = 'lib/core/tools/localization/sample_translations.csv';
+  final csvPath = 'assets/l10n/translations.csv';
   final file = File(csvPath);
 
   if (!await file.exists()) {
