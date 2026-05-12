@@ -47,6 +47,7 @@ lib/core/tools/localization/
 ├── sync_languages.dart         ← 🔄 Language sync & missing-key fixer
 ├── detect_unused_keys.dart     ← 🗑  Dead key scanner & cleaner
 ├── generate_key.dart           ← 🔑 Auto key generator (text → snake_case)
+├── auto_translate.dart         ← 🤖 Auto translates missing CSV keys (LibreTranslate)
 └── sample_translations.csv     ← 📄 Demo CSV to get started
 ```
 
@@ -74,6 +75,7 @@ Options:
   3  🗑   Detect Unused Keys
   4  🔑  Generate Key
   5  ⚡  Run Full Pipeline
+  6  🤖  Auto-Translate CSV (via LibreTranslate)
   0  🚪  Exit
 ```
 
@@ -231,6 +233,30 @@ dart run lib/core/tools/localization/main_localization.dart all translations.csv
 3️⃣  Unused key report   (detect_unused_keys)
 ✅  Full pipeline complete!
 ```
+
+---
+
+### 🤖 6. Auto-Translate CSV (`auto_translate.dart`)
+
+Automatically translates any empty values in your CSV file using the open-source [LibreTranslate](https://docs.libretranslate.com) API.
+
+**How it works:**
+1. Reads `sample_translations.csv`.
+2. Identifies the source language (first column after key) and target languages.
+3. Finds empty translation cells and queries the LibreTranslate API to fill them.
+4. Saves the completed translations back to the CSV.
+
+**Usage:**
+```bash
+dart run lib/core/tools/localization/auto_translate.dart
+```
+
+> **🐳 Docker Note (Recommended for Production):**
+> The script defaults to a public LibreTranslate instance. To avoid IP bans (rate limits) and protect your app's data privacy, it is highly recommended to host LibreTranslate locally via Docker:
+> ```bash
+> docker run -ti --rm -p 5000:5000 libretranslate/libretranslate
+> ```
+> Then update the `apiUrl` in `auto_translate.dart` to `http://localhost:5000/translate`.
 
 ---
 

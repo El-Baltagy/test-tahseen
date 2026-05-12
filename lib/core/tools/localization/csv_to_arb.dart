@@ -75,10 +75,10 @@ void main(List<String> args) {
         skipped++;
         continue;
       }
-      rawKey = generateKey(enText);
+      rawKey = toSnakeCase(enText);
       autoKeyCount++;
     } else {
-      rawKey = generateKey(rawKey); // normalise existing keys too
+      rawKey = toSnakeCase(rawKey); // normalise existing keys too
     }
 
     for (int i = 0; i < langCodes.length; i++) {
@@ -102,7 +102,7 @@ void main(List<String> args) {
     final entries = langMaps[lang]!;
     final arb = _buildArb(lang, entries);
     final outPath = '$outputDir/app_$lang.arb';
-    File(outPath).writeAsStringSync(arb);
+    File(outPath).writeAsStringSync(arb, encoding: utf8);
     print('✅ Written ${entries.length} keys → $outPath');
   }
 
