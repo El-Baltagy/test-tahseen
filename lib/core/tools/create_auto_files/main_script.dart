@@ -1,14 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
-import '../create_auto_files/path_constants.dart';
-import 'package:${PathConstants().projectName}/core/tools/create_auto_files/path_constants.dart';
-import 'package:${PathConstants().projectName}/core/tools/create_auto_files/repo_added_files.dart'
-    show RepoAddRequiredFiles;
-import 'package:${PathConstants().projectName}/core/tools/create_auto_files/route_generator_data.dart';
-import 'package:${PathConstants().projectName}/core/tools/create_auto_files/service_added_files.dart';
-import 'package:${PathConstants().projectName}/core/tools/create_auto_files/singleton_add_requried_date.dart';
-import 'package:${PathConstants().projectName}/core/tools/create_auto_files/ui_added_files.dart'
-    show UIAddRequiredFiles;
+import 'path_constants.dart';
+import 'repo_added_files.dart' show RepoAddRequiredFiles;
+import 'route_generator_data.dart';
+import 'service_added_files.dart';
+import 'singleton_add_requried_date.dart';
+import 'ui_added_files.dart' show UIAddRequiredFiles;
 import 'controller_added_files.dart' show ControllerAddRequiredFiles;
 
 Future<void> main(List<dynamic> args) async {

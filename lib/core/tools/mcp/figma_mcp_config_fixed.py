@@ -7,15 +7,15 @@ import pathlib
 
 def install_dependencies():
     """Install required libraries if not present."""
-    print("🔍 Checking dependencies...")
+    print("Checking dependencies...")
     try:
         import httpx
         import mcp
-        print("✅ Dependencies already installed.")
+        print("Dependencies already installed.")
     except ImportError:
-        print("📦 Installing required libraries (httpx, mcp, python-dotenv)...")
+        print("Installing required libraries (httpx, mcp, python-dotenv)...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "httpx", "mcp", "python-dotenv"])
-        print("✅ Installation complete.")
+        print("Installation complete.")
 
 def save_figma_credentials(token):
     """Save Figma token to a secure local file for AI access."""
@@ -25,7 +25,7 @@ def save_figma_credentials(token):
     with open(cred_path, "w") as f:
         json.dump(data, f)
     
-    print(f"✅ Credentials saved to: {cred_path}")
+    print(f"Credentials saved to: {cred_path}")
     return cred_path
 
 if __name__ == "__main__":
@@ -41,5 +41,5 @@ if __name__ == "__main__":
     # 2. Save credentials
     save_figma_credentials(token)
     
-    print("\n🚀 SETUP SUCCESSFUL!")
+    print("\nSETUP SUCCESSFUL!")
     print("Now any AI model can use your token to read Figma files.")
