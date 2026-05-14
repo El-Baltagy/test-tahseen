@@ -65,16 +65,28 @@ Future<bool> _step1_pubspec(String root) async {
   var   content = file.readAsStringSync();
   bool  changed = false;
 
-  // 1a. Add easy_localization under dependencies:
-  if (!content.contains(RegExp(r'^\s*easy_localization:', multiLine: true))) {
-    content = content.replaceFirst(
-      RegExp(r'(dependencies:\s*\n)'),
-      'dependencies:\n  easy_localization: ^3.0.5\n',
+  // 1a. Add flutter_localizations under dependencies:
+  if (!content.contains('flutter_localizations')) {
+    content = content.replaceFirstMapped(
+      RegExp(r'(dependencies:\s*\n\s*flutter:\s*\n\s*sdk:\s*flutter)'),
+      (match) => '${match.group(1)}\n\n  flutter_localizations:\n    sdk: flutter',
     );
-    _ok('Added easy_localization dependency');
+    _ok('Added flutter_localizations dependency');
     changed = true;
   } else {
-    _skip('easy_localization already present');
+    _skip('flutter_localizations already present');
+  }
+
+  // 1b. Add intl
+  if (!content.contains(RegExp(r'^\s*intl:', multiLine: true))) {
+    content = content.replaceFirst(
+      'flutter_localizations:\n    sdk: flutter',
+      'flutter_localizations:\n    sdk: flutter\n  intl: ^0.20.0',
+    );
+    _ok('Added intl dependency');
+    changed = true;
+  } else {
+    _skip('intl already present');
   }
 
 

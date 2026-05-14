@@ -15,17 +15,29 @@ import 'package:tahseen/localization.dart';
     CodegenLoader.init()
   ]);
 
-
-
-
   runApp(
     EasyLocalization(
       supportedLocales: CodegenLoader.supportedLocales,
       fallbackLocale:  CodegenLoader.fallBackLocale,
-      startLocale: CodegenLoader().currentLocale,
       path: CodegenLoader.assetTranslationsPath,
       assetLoader: CodegenLoader(),
-      child:Scaffold(),
+      child: const MyApp(),
     ),
   );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Tahseen',
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      home: Scaffold(),
+    );
+  }
 }
