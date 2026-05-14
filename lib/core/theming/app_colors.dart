@@ -14,9 +14,10 @@ class AppColors {
   static const Color backgroundDark = Color(0xFF0B0B0B);
   static const Color surfaceDark = Color(0xFF1E1E1E);
   
-  // Text Colors
-  static const Color textWhite = Colors.white;
-  static const Color textGrey = Color(0xFFB1B5BB);
+  // Extracted from Splash Screen (Gradient)
+  static const Color primaryGoldStart = Color(0xFFC0A27B);
+  static const Color primaryGoldEnd = Color(0xFFFFD480);
+  static const Color white = Color(0xFFFFFFFF);
 
   // Bottom Nav
   static const Color bottomNavBg = Color(0xFFE2BE7F);

@@ -1,6 +1,6 @@
 import 'dart:io';
 import '../create_auto_files/path_constants.dart';
-import 'package:${PathConstants().projectName}/core/tools/create_auto_files/path_constants.dart';
+import 'path_constants.dart';
 
 
 

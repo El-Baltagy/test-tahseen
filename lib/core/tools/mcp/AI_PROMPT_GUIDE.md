@@ -1,36 +1,46 @@
-# 🤖 AI Technical Command: Project Architecture Rules
+# 🤖 AI Technical Command: Professional UI & Architecture Rules
+
+> [!NOTE]
+> Figma credentials are stored globally in `~/.figma_mcp_credentials.json` to be shared across projects.
 
 > [!IMPORTANT]
-> This is a **STRICT** protocol for any AI model interacting with this codebase. You must follow these rules without deviation. Do **NOT** propose alternative patterns or add personal preferences.
+> This protocol is MANDATORY for building any UI in this project. You must strictly follow the architectural patterns established in the project's automation scripts.
 
-## 1. 🎨 Figma Data Extraction (Theming & Assets)
-When extracting design data (Colors, Fonts, Assets) from Figma:
-- **Colors**: Must be added to `lib/core/theming/app_colors.dart`.
-- **Text Styles**: Must be added to `lib/core/theming/app_text_styles.dart`.
-- **Assets**: Must be registered in `lib/core/constants/app_assets.dart`.
-- **Rule**: NO hardcoded Hex codes or String paths in UI widgets. Use the constants from the paths above.
+## 1. 🏗️ Professional UI Architecture (AutoRouter & BLoC)
+When building a screen, you must follow the `AutoRouteWrapper` pattern as seen in generated features:
+- **Annotations**: Use `@RoutePage()` for the screen class.
+- **Dependency Injection**: Implement `AutoRouteWrapper` and use `wrappedRoute` to provide the screen's Cubit using `AppSingleton()`.
+- **State Management**: Use `BlocListener` and `BlocBuilder` correctly within the build method.
+- **Lifecycle**: Use an abstract `BaseState` class extending `State<T>` to handle `initState`, `dispose`, and shared variables like `Cubit.get()`.
 
-## 2. 🌍 String Localization & Generation
-NEVER hardcode strings in the UI. For every new string:
-1. **Script**: Execute `dart run lib/core/tools/localization/generate_key.dart "<English Text>"`.
-2. **Action**: This script generates a `snake_case` key and appends it to `assets/l10n/translations.csv`.
-3. **Usage**: In the code, use the generated key followed by `.tr()`. 
-   - *Example*: `'hello_world'.tr()`
+## 2. 🧩 Widget Extraction & Asset Management
+- **Rule**: NEVER build the entire UI within the main screen file.
+- **Extraction**: Every distinct UI component (Button, Card, Header, etc.) must be extracted into a separate file inside a `widgets` folder within the feature's `ui` directory.
+- **Assets (Images & SVGs)**: 
+  1. Identify image or vector nodes in Figma.
+  2. Use Figma API to export them (PNG for images, SVG for icons).
+  3. Save them in `assets/images/` or `assets/icons/`.
+  4. Register the new asset in `lib/core/constants/app_assets.dart`.
+- **Imports**: Mention and import widgets and assets in the main screen file.
 
-## 3. 🏗️ Feature & Screen Generation
-To create any new feature or screen:
-1. **Script**: Use `dart run lib/core/tools/create_auto_files/main_script.dart <FeatureName>`.
-2. **Behavior**: 
-   - This creates the structure in `lib/features/screens/<FeatureName>`.
-   - It will prompt for **Cubit** or **Notifier** (Assume Cubit/Y unless specified).
-   - It automatically registers routes and runs `build_runner`.
-3. **Rule**: Do NOT manually create folders or files for screens. Always use this script.
+## 3. ♿ Accessibility & Semantics
+- **Rule**: Every UI component MUST be wrapped with a `Semantics` widget **AS THE FIRST (OUTERMOST) WRAPPER** in the main screen file.
+  - *Correct*: `Semantics(label: '...', child: Center(child: MyWidget()))`
+  - *Incorrect*: `Center(child: Semantics(label: '...', child: MyWidget()))`
+- **Label**: Provide a concise, meaningful description in the `label` property.
 
-## ⚠️ Core Constraints for AI
-- **NO Hardcoding**: Every value must come from a centralized constant or localization key.
-- **Script Fidelity**: Follow the logic of the project's tools (`generate_key.dart`, `main_script.dart`) exactly as written.
-- **Zero Opinion**: Do not add extra widgets, packages, or architectural layers from your own view. Stick to the project's established pattern.
-- **Uncertainty**: If a path is missing or a script fails, **STOP** and ask the user for clarification before proceeding.
+## 4. 📦 Imports & Formatting
+- **Rule**: ALWAYS use **Package Imports** (e.g., `import 'package:tahseen/...'`) instead of relative imports (e.g., `import '../../...'`).
+- **Standard**: This ensures consistency and prevents issues with nested file structures.
+
+## 5. 🚀 Post-Generation Tasks
+- **Rule**: Before finishing any screen or feature generation task, you MUST run the route generator script:
+  - `dart run lib/core/tools/create_auto_files/route_generator_data.dart`
+- **Purpose**: This automatically generates/updates the `route.gr.dart` file and registers the new pages with AutoRouter.
+
+## 6. 🌍 Localization & Theme Reminder
+- **Localization**: Use `generate_key.dart` for ALL strings and access them via `'key'.tr()`.
+- **Theming**: Use `AppColors` and `AppTextStyles` for all styling. NO hardcoded values.
 
 ---
-*Follow these instructions to maintain a professional, consistent, and automated codebase.*
+*Failure to extract widgets or wrap them in Semantics is a violation of the Tahseen Professional Standard.*

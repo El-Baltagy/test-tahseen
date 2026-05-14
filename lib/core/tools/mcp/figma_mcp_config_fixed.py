@@ -19,7 +19,7 @@ def install_dependencies():
 
 def save_figma_credentials(token):
     """Save Figma token to a secure local file for AI access."""
-    cred_path = pathlib.Path.home() / ".tahseen_figma_creds.json"
+    cred_path = pathlib.Path.home() / ".figma_mcp_credentials.json"
     data = {"FIGMA_TOKEN": token}
     
     with open(cred_path, "w") as f:

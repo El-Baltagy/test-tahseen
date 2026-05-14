@@ -94,3 +94,6 @@ Future<void>makeBuildRunner()async{
   process.stderr.transform(SystemEncoding().decoder).listen(print);
   await process.exitCode;
 }
+Future<void> main() async {
+  await makeBuildRunner();
+}
