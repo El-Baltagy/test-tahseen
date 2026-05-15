@@ -23,4 +23,8 @@ extension AppRouterExtension on BuildContext {
 
   /// Check if the router can pop.
   bool get canPop => router.canPop();
+
+
+
+
 }

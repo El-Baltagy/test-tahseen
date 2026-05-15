@@ -47,5 +47,28 @@ When building a screen, you must follow the `AutoRouteWrapper` pattern as seen i
   - *Example*: `style: AppTextStyles.font16SemiBold.copyWith(color: AppColors.primaryGoldStart)`
 - **Colors**: Use `AppColors` for all color values. NO hardcoded HEX or basic colors.
 
+## 7. 📏 Spacing & Padding System
+- **Rule**: NEVER use raw `SizedBox` for vertical or horizontal spacing.
+- **Extensions**: Use the custom extensions from `lib/core/extension/double.dart`:
+  - *Vertical Space*: `10.verticalSpace`
+  - *Horizontal Space*: `10.horizontalSpace`
+- **Padding & Sizes**: 
+  - Use constant values for all Padding, Margins, and fixed Sizes. 
+  - **Standard**: These should be defined as constants (e.g., `AppPadding.p16`, `AppSizes.s10`). 
+  - Avoid using "Magic Numbers" (e.g., `EdgeInsets.all(12)`); use `EdgeInsets.all(AppPadding.p12)` instead.
+
+## 8. ⚡ Performance & Widgets
+- **Const Constructors**: ALWAYS use `const` for widgets and constructors whenever possible to optimize rebuilds.
+- **Small Widgets**: Break down large build methods into small, focused `StatelessWidget` files. 
+- **Rule**: A single build method should ideally not exceed 100 lines. If it does, extract sub-widgets.
+
+## 9. 🛠️ Error Handling & Cubit Logic
+- **BaseCubit**: Use `BaseCubit` or a standard error handling pattern to manage network failures, unauthorized access, or server errors.
+- **UI Feedback**: Handle errors in `BlocListener` and show appropriate feedback (SnackBar or Dialog) using project-standard utilities.
+
+## 10. 📝 Documentation & Comments
+- **Rule**: Every function with complex logic must have a concise one-line comment above it explaining its purpose.
+- **Clean Code**: Code should be self-documenting through clear variable and function names, but critical logic requires explicit comments.
+
 ---
-*Failure to extract widgets or wrap them in Semantics is a violation of the Tahseen Professional Standard.*
+*Failure to extract widgets, use constant values, or wrap them in Semantics is a violation of the Tahseen Professional Standard.*
