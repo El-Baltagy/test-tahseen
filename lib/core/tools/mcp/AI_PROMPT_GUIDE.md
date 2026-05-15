@@ -47,12 +47,17 @@ When building a screen, you must follow the `AutoRouteWrapper` pattern as seen i
   - *Example*: `style: AppTextStyles.font16SemiBold.copyWith(color: AppColors.primaryGoldStart)`
 - **Colors**: Use `AppColors` for all color values. NO hardcoded HEX or basic colors.
 
-## 7. 📏 Spacing & Padding System
-- **Rule**: NEVER use raw `SizedBox` for vertical or horizontal spacing.
+## 7. 🎨 UI & Styling (No Hardcoding)
+- **Rules**:
+- Colors: Use `AppColors` ONLY.
+- Typography: ALWAYS use `AppTextStyles` from `lib/core/theming/app_text_styles.dart` with `.copyWith()` for minor adjustments.
+
+- Sizing :NEVER use raw `SizedBox` for vertical or horizontal spacing.
 - **Extensions**: Use the custom extensions from `lib/core/extension/double.dart`:
   - *Vertical Space*: `10.verticalSpace`
   - *Horizontal Space*: `10.horizontalSpace`
-- **Padding & Sizes**: 
+
+- Padding & Sizes: 
   - Use constant values for all Padding, Margins, and fixed Sizes. 
   - **Standard**: These should be defined as constants (e.g., `AppPadding.p16`, `AppSizes.s10`). 
   - Avoid using "Magic Numbers" (e.g., `EdgeInsets.all(12)`); use `EdgeInsets.all(AppPadding.p12)` instead.

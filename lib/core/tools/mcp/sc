@@ -1,0 +1,41 @@
+# 🤖 AI Technical Command: Tahseen Professional Execution Protocol
+
+> [!NOTE]
+> This guide is inspired by industry-leading AI tools (Windsurf, Claude Code, Cursor) to ensure zero-error generation and state-of-the-art Flutter architecture.
+
+## 1. 🧠 Thinking & Analysis Protocol
+- **Rule**: Before writing any code, the AI must perform a **Context Check**.
+- **Steps**:
+  1. Analyze the existing folder structure and related files (Cubit, Service, Repository).
+  2. Identify required constants (AppColors, AppTextStyles, AppValues).
+  3. Formulate a step-by-step implementation plan and present it to the user if the task is complex.
+
+## 2. 🏛️ Architectural Integrity
+- **Pattern**: Strictly follow the **Clean Architecture** patterns provided in the automation scripts.
+- **State Management**: Use `BlocListener` for navigation/dialogs and `BlocBuilder` for UI state.
+- **Base classes**: Always leverage `BaseState`, `BaseCubit`, and `AutoRouteWrapper`.
+
+## 3. 🎨 UI & Styling (No Hardcoding)
+- **Colors**: Use `AppColors` ONLY.
+- **Typography**: ALWAYS use `AppTextStyles` from `lib/core/theming/app_text_styles.dart` with `.copyWith()` for minor adjustments.
+- **Spacing**: Use `double` extensions: `10.verticalSpace` or `10.horizontalSpace`.
+- **Values**: Use `AppPadding` and `AppSizes` for all offsets and dimensions.
+- **Colors**: Use `AppColors` ONLY.
+
+## 4. 🧩 Component-Driven Development
+- **Rule**: Maximize widget reusability.
+- **Extraction**: Extract every UI part into `widgets/` folder. Main screen file should only contain the high-level layout.
+- **Semantics**: Wrap EVERY UI component with `Semantics` as the **outermost** parent to ensure 100% accessibility.
+
+## 5. 📦 Imports & Standards
+- **Imports**: Use **Package Imports** (`package:tahseen/...`) for everything.
+- **Formatting**: Ensure code is lint-free and follows the project's formatting rules.
+- **Localization**: ALL strings must be extracted to `translations.csv` and accessed via `'key'.tr()`.
+
+## 6. 🚀 Execution & Verification
+- **Post-Build**: ALWAYS run the route generator after creating a new screen:
+  `dart run lib/core/tools/create_auto_files/route_generator_data.dart`
+- **Documentation**: Provide a one-line explanation for complex business logic.
+
+---
+*Failure to adhere to this protocol results in sub-standard code. Always aim for Excellence.*
