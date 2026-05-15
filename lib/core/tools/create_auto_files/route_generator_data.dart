@@ -87,8 +87,9 @@ Future<void>makeBuildRunner()async{
   }
 
   final process = await Process.start(
-    'D:/programmes/flutter_3.38/flutter/bin/flutter.bat',
+    'flutter',
     ['pub', 'run', 'build_runner', 'build', ...additionalArg],
+    runInShell: true,
   );
   process.stdout.transform(SystemEncoding().decoder).listen(print);
   process.stderr.transform(SystemEncoding().decoder).listen(print);

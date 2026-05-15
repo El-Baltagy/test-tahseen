@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tahseen/flavor_config.dart';
 import 'package:tahseen/localization.dart';
-import 'features/screens/Splash/ui/Splash_screen.dart';
 
  void  main() async {
   AppFlavorConfig.initialize();
@@ -38,7 +37,9 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: const SplashPage(),
+      home: Scaffold(),
     );
   }
 }
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey(debugLabel: "Main Navigator");

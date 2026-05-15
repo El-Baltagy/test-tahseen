@@ -40,7 +40,12 @@ When building a screen, you must follow the `AutoRouteWrapper` pattern as seen i
 
 ## 6. 🌍 Localization & Theme Reminder
 - **Localization**: Use `generate_key.dart` for ALL strings and access them via `'key'.tr()`.
-- **Theming**: Use `AppColors` and `AppTextStyles` for all styling. NO hardcoded values.
+- **Theming & Typography**: 
+  - ALWAYS use `AppTextStyles` from `lib/core/theming/app_text_styles.dart`.
+  - **Rule**: NEVER define `TextStyle` properties (fontSize, color, fontWeight, etc.) directly in the widget.
+  - **Adjustment**: If a slight change is needed (e.g., custom color), use `.copyWith()` on an existing `AppTextStyle`.
+  - *Example*: `style: AppTextStyles.font16SemiBold.copyWith(color: AppColors.primaryGoldStart)`
+- **Colors**: Use `AppColors` for all color values. NO hardcoded HEX or basic colors.
 
 ---
 *Failure to extract widgets or wrap them in Semantics is a violation of the Tahseen Professional Standard.*

@@ -9,7 +9,7 @@
 import 'dart:convert';
 import 'dart:io';
 import '../create_auto_files/path_constants.dart';
-import 'package:${PathConstants().projectName}/core/tools/utils_spinner.dart';
+import '../utils_spinner.dart';
 
 String capitalize(String s) => s.isEmpty ? s : s[0].toUpperCase() + s.substring(1);
 String classNameFromKey(String key) {
@@ -258,8 +258,9 @@ Future<void> main(List<String> args) async {
 
     print('Running build_runner...');
     final process = await Process.start(
-        'D:/programmes/flutter_3.38/flutter/bin/flutter.bat',
-        ['pub', 'run', 'build_runner', 'build','--delete-conflicting-outputs',...additionalArg]);
+        'flutter',
+        ['pub', 'run', 'build_runner', 'build','--delete-conflicting-outputs',...additionalArg],
+        runInShell: true);
     process.stdout.transform(const SystemEncoding().decoder).listen(print);
     process.stderr.transform(const SystemEncoding().decoder).listen(print);
 
